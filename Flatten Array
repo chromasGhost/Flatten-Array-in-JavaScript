@@ -1,0 +1,19 @@
+//JavaScript code that will flatten an array of arrays into a single array.
+
+arrayOfArrays = [[1,2,[3]],4,[5]];
+
+function flattenArray(array) {
+  var flatArray = [];
+  
+  for(var x = 0; x < array.length; x++){
+    if(Array.isArray(array[x])){
+      flatArray = flatArray.concat(flattenArray(array[x]));
+    }
+    else{
+      flatArray.push(array[x]);
+    }
+  }
+  return flatArray;
+}
+
+console.log(flattenArray(arrayOfArrays));
